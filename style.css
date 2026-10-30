@@ -1,0 +1,936 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+One&display=swap');
+
+
+/* 01. VARIABILI DEL PROGETTO */
+
+:root {
+  /* COLORI */
+  --sfondo: #242222;
+  --corallo: #c95f63;
+  --giallo: #e5a51c;
+  --rosso: #c9503e;
+  --bianco: #f5f1eb;
+  --testo-secondario: #d5d0ca;
+
+  /* LARGHEZZA GENERALE */
+  --margine-laterale: 72px;
+  --larghezza-massima: 1500px;
+
+  /* COPERTINA: TITOLI */
+  --copertina-titoli-x: 0px;
+  --copertina-titoli-y: 0px;
+  --copertina-titoli-scala: 1.2;
+
+  /* COPERTINA: ILLUSTRAZIONE */
+  --copertina-illustrazione-x: 0px;
+  --copertina-illustrazione-y: 0px;
+  --copertina-illustrazione-larghezza: 65%;
+
+  /* COPERTINA: BOLLINO */
+  --copertina-bollino-x: 80px;
+  --copertina-bollino-y: -100px;
+  --copertina-bollino-larghezza: 35%;
+
+  /* COPERTINA: DESCRIZIONE */
+  --copertina-testi-x: -390px;
+  
+
+  /* MONTAGNE: TESTO */
+  --montagne-testo-x: -120px;
+  --montagne-testo-y: 190px;
+  --montagne-testo-larghezza: 42%;
+  --montagne-titolo-scala: 1;
+  --montagne-paragrafo-scala: 1;
+
+  /* MONTAGNE: ILLUSTRAZIONE */
+  --montagne-immagine-x: 182px;
+  --montagne-immagine-y: 0px;
+  --montagne-immagine-larghezza: 100%;
+  --montagne-immagine-scala: 1.5;
+
+  /* VIAGGIO */
+  --barca-testo-x: 120px;
+  --barca-testo-y: 260px;
+  --barca-immagine-x: -290px;
+  --barca-immagine-y: 160px;
+  --barca-immagine-scala: 1.1;
+
+  /* TRASFORMAZIONE */
+  --patatine-testo-x: -120px;
+  --patatine-testo-y: 190px;
+  --patatine-immagine-x: 300px;
+  --patatine-immagine-y: 50px;
+  --patatine-immagine-scala: 1.1;
+
+  /* CONCLUSIONE */
+  --terra-testo-x: 120px;
+  --terra-testo-y: 190px;
+  --terra-immagine-x: -300px;
+  --terra-immagine-y: 0px;
+  --terra-immagine-scala: 1.2;
+
+  /* SEZIONI */
+  --altezza-immagini-storia: 72svh;
+  --spazio-testo-immagine: 36px;
+}
+
+
+/* =====================================================
+   02. REGOLE GENERALI
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--sfondo);
+  color: var(--bianco);
+  font-family: 'Rubik One', sans-serif;
+  font-weight: 400;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+p,
+h1,
+h2 {
+  margin-top: 0;
+}
+
+.container {
+  width: calc(100% - var(--margine-laterale) * 2);
+  max-width: var(--larghezza-massima);
+  margin-inline: auto;
+}
+
+
+/* =====================================================
+   03. COPERTINA
+===================================================== */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 0;
+  padding: 24px 0;
+  overflow: hidden;
+  background: var(--sfondo);
+}
+
+.hero > .container {
+  position: relative;
+  height: 100%;
+}
+
+/* WEB DESIGN */
+
+.hero-eyebrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  color: var(--bianco);
+  text-align: center;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+/* TITOLI PRINCIPALI */
+
+.hero-heading {
+  position: absolute;
+  top: 12%;
+  left: 15%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 7%;
+  width: 70%;
+  margin: 0;
+  padding: 0;
+  transform:
+    translate(
+      var(--copertina-titoli-x),
+      var(--copertina-titoli-y)
+    )
+    scale(var(--copertina-titoli-scala));
+  transform-origin: top center;
+}
+
+.hero-title-group {
+  min-width: 0;
+}
+
+.hero-title-group:nth-child(2) {
+  text-align: left;
+}
+
+.overline {
+  display: block;
+  margin: 0 0 5px;
+  color: var(--bianco);
+  font-size: clamp(13px, 1.7vw, 28px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(48px, 6.4vw, 108px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+}
+
+.title-yellow {
+  color: var(--giallo);
+}
+
+.title-coral {
+  color: var(--rosso);
+}
+
+/* ILLUSTRAZIONE PRINCIPALE */
+
+.hero-artwork {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: var(--copertina-illustrazione-larghezza);
+  margin: 0;
+  transform:
+    translate(
+      calc(-50% + var(--copertina-illustrazione-x)),
+      var(--copertina-illustrazione-y)
+    );
+}
+
+.hero-image {
+  width: 100%;
+  max-width: none;
+  max-height: 68svh;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+/* BOLLINO */
+
+.certification-badge {
+  position: absolute;
+  top: calc(52% + var(--copertina-bollino-y));
+  right: -36%;
+  width: var(--copertina-bollino-larghezza);
+  height: auto;
+  transform: translateX(var(--copertina-bollino-x));
+  object-fit: contain;
+}
+
+/* DESCRIZIONE DELLA COPERTINA */
+
+.hero-captions {
+  position: absolute;
+  right: 0;
+  bottom: 290px;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0;
+  transform: translateX(var(--copertina-testi-x));
+}
+
+.hero-captions p {
+  max-width: 280px;
+  margin: 0;
+  color: var(--bianco);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* DICITURE IN BASSO DELLA COPERTINA */
+
+.hero-scroll,
+.hero-tagline {
+  position: absolute;
+  bottom: 24px;
+  margin: 0;
+  color: var(--bianco);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+  white-space: nowrap;
+}
+
+.hero-scroll {
+  left: 130px;
+}
+
+.hero-tagline {
+  right: 130px;
+}
+
+
+
+/* =====================================================
+   04. STRUTTURA GENERALE DELLE SEZIONI
+===================================================== */
+
+.story-section {
+  position: relative;
+  width: 100%;
+  height: 110vh;
+  height: 110svh;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--sfondo);
+}
+
+.story-section > .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: calc(100% - var(--margine-laterale) * 2);
+  max-width: var(--larghezza-massima);
+  height: 100%;
+  margin-inline: auto;
+}
+
+.story-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  column-gap: var(--spazio-testo-immagine);
+  width: 100%;
+}
+
+.story-copy {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+
+.story-copy .eyebrow {
+  margin: 0 0 5px;
+  color: var(--bianco);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.025em;
+}
+
+.story-copy .eyebrow .eyebrow-number {
+  color: var(--giallo);
+}
+
+.story-copy h2 {
+  max-width: 580px;
+  margin: 0 0 12px;
+  color: var(--giallo);
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.story-copy > p:last-child {
+  max-width: 960px;
+  margin: 0;
+  color: var(--bianco);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.story-artwork {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.story-artwork img {
+  width: 100%;
+  height: auto;
+  max-height: var(--altezza-immagini-storia);
+  object-fit: contain;
+  object-position: center;
+}
+
+
+/* =====================================================
+   05. MONTAGNE — LE ORIGINI
+===================================================== */
+
+.origins .story-row {
+  grid-template-columns: var(--montagne-testo-larghezza) 1fr;
+  column-gap: 0;
+}
+
+.origins .story-copy {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  padding-right: 24px;
+  transform: translate(
+    var(--montagne-testo-x),
+    var(--montagne-testo-y)
+  );
+}
+
+.origins .story-copy .eyebrow {
+  color: var(--bianco);
+  font-size: 16px;
+}
+
+.origins .story-copy h2 {
+  font-size: clamp(38px, 3.35vw, 56px);
+  transform: scale(var(--montagne-titolo-scala));
+  transform-origin: left center;
+}
+
+.origins .story-copy > p:last-child {
+  font-size: clamp(13px, 1.05vw, 17px);
+  transform: scale(var(--montagne-paragrafo-scala));
+  transform-origin: left center;
+}
+
+.origins .story-artwork {
+  grid-column: 2;
+  grid-row: 1;
+  transform: translate(
+    var(--montagne-immagine-x),
+    var(--montagne-immagine-y)
+  );
+}
+
+.origins .story-artwork img {
+  width: var(--montagne-immagine-larghezza);
+  max-height: var(--altezza-immagini-storia);
+  transform: scale(var(--montagne-immagine-scala));
+  transform-origin: center center;
+}
+
+
+/* =====================================================
+   06. BARCA — LA DIFFUSIONE
+===================================================== */
+
+.journey .story-artwork {
+  grid-column: 1;
+  grid-row: 1;
+  transform: translate(
+    var(--barca-immagine-x),
+    var(--barca-immagine-y)
+  );
+}
+
+.journey .story-artwork img {
+  transform: scale(var(--barca-immagine-scala));
+  transform-origin: center center;
+}
+
+.journey .story-copy {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+  transform: translate(
+    var(--barca-testo-x),
+    var(--barca-testo-y)
+  );
+}
+
+.journey .story-copy .eyebrow {
+  font-size: 16px;
+}
+
+.journey .story-copy h2,
+.journey .story-copy > p:last-child {
+  margin-left: auto;
+}
+
+
+/* =====================================================
+   07. PATATINE — LA TRASFORMAZIONE
+===================================================== */
+
+.transformation .story-copy {
+  grid-column: 1;
+  grid-row: 1;
+  transform: translate(
+    var(--patatine-testo-x),
+    var(--patatine-testo-y)
+  );
+}
+
+.transformation .story-copy .eyebrow {
+  font-size: 16px;
+}
+
+.transformation .story-artwork {
+  grid-column: 2;
+  grid-row: 1;
+  transform: translate(
+    var(--patatine-immagine-x),
+    var(--patatine-immagine-y)
+  );
+}
+
+.transformation .story-artwork img {
+  transform: scale(var(--patatine-immagine-scala));
+  transform-origin: center center;
+}
+
+
+/* =====================================================
+   08. TERRA — CONCLUSIONE
+===================================================== */
+
+.conclusion .story-artwork {
+  grid-column: 1;
+  grid-row: 1;
+  transform: translate(
+    var(--terra-immagine-x),
+    var(--terra-immagine-y)
+  );
+}
+
+.conclusion .story-artwork img {
+  transform: scale(var(--terra-immagine-scala));
+  transform-origin: center center;
+}
+
+.conclusion .story-copy {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+  transform: translate(
+    var(--terra-testo-x),
+    var(--terra-testo-y)
+  );
+}
+
+.conclusion .story-copy .eyebrow {
+  font-size: 16px;
+}
+
+.conclusion .story-copy h2,
+.conclusion .story-copy > p:last-child {
+  margin-left: auto;
+}
+
+
+/* =====================================================
+   09. FOOTER
+===================================================== */
+
+.site-footer {
+  width: 100%;
+  padding: 0;
+  background: var(--sfondo);
+}
+
+.footer-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  margin: 0;
+  padding: 40px 2.8% 60px;
+  border-top: none;
+}
+
+.footer-row::before {
+  position: absolute;
+  top: 0;
+  right: 2.8%;
+  left: 2.8%;
+  border-top: 1px solid rgba(245, 241, 235, 0.45);
+  content: "";
+}
+
+.footer-home,
+.footer-project,
+.footer-copyright {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.footer-home {
+  color: var(--giallo);
+  text-decoration: none;
+}
+
+.footer-project {
+  color: var(--bianco);
+  text-align: center;
+}
+
+.footer-copyright {
+  color: var(--rosso);
+  text-align: right;
+}
+
+/* =====================================================
+   ANIMAZIONI DI INGRESSO DELLA HERO
+===================================================== */
+
+@keyframes hero-enter-bottom {
+  from {
+    opacity: 0;
+    translate: 0 70px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes hero-enter-top {
+  from {
+    opacity: 0;
+    translate: 0 -50px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes hero-enter-left {
+  from {
+    opacity: 0;
+    translate: -80px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes hero-enter-right {
+  from {
+    opacity: 0;
+    translate: 80px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* WEB DESIGN: dall'alto */
+
+.hero-eyebrow {
+  animation: hero-enter-top 0.9s ease-out 0.1s both;
+}
+
+/* TITOLI: entrano dal basso */
+
+.hero-heading {
+  animation: hero-enter-bottom 1s ease-out 0.25s both;
+}
+
+/* ILLUSTRAZIONE PRINCIPALE: dal basso */
+
+.hero-artwork {
+  animation: hero-enter-bottom 1.1s ease-out 0.15s both;
+}
+
+/* TESTO DESCRITTIVO: da sinistra */
+
+.hero-captions {
+  animation: hero-enter-left 1s ease-out 0.45s both;
+}
+
+/* BOLLINO: da destra */
+
+.certification-badge {
+  animation: hero-enter-right 1s ease-out 0.55s both;
+}
+
+/* DICITURE IN BASSO: dal basso */
+
+.hero-scroll {
+  animation: hero-enter-bottom 0.8s ease-out 0.65s both;
+}
+@media (max-width: 760px) {
+  .hero-tagline {
+    animation: hero-enter-bottom 0.8s ease-out 0.8s both;
+  }
+  /* ---------- COPERTINA ---------- */
+
+  .hero {
+    height: 100svh;
+    min-height: 560px;
+    padding: 20px 0;
+  }
+
+  .hero > .container {
+    width: calc(100% - 40px);
+  }
+
+  .hero-eyebrow {
+    top: 0;
+    font-size: 14px;
+  }
+
+.hero-heading {
+  top: 12%;
+  left: 0;
+  width: 100%;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  transform: none;
+}
+
+  .hero-title-group {
+  min-width: max-content;
+  }
+
+.hero-title-group:nth-child(2) {
+  text-align: left;
+  margin-top: 8px;
+}
+
+  .overline {
+    margin-bottom: 4px;
+    font-size: 9px;
+    line-height: 1.1;
+  }
+
+  .hero h1 {
+    font-size: clamp(76px, 10vw, 98px);
+    line-height: 0.95;
+    letter-spacing: 0;
+    white-space: normal;
+  }
+
+.hero-artwork {
+  bottom: 37%;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+}
+
+  .hero-image {
+    width: 100%;
+    max-height: 42svh;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .certification-badge {
+    top: 5%;
+    right: 2%;
+    width: 19%;
+    transform: none;
+  }
+
+.hero-captions {
+  position: absolute;
+  top: 52%;
+  left: 2%;
+  right: auto;
+  bottom: auto;
+  width: 34%;
+  display: block;
+  margin: 0;
+  transform: none;
+  z-index: 2;
+}
+
+.hero-captions p {
+  max-width: 100%;
+  margin: 0;
+  font-size: 9px;
+  line-height: 1.3;
+}
+  .hero-scroll,
+  .hero-tagline {
+    bottom: -38px;
+    font-size: 8px;
+  }
+
+  .hero-scroll {
+    left: 0;
+  }
+
+  .hero-tagline {
+    right: 0;
+  }
+
+
+  /* ---------- SEZIONI DELLA STORIA ---------- */
+
+  .story-section {
+    height: auto;
+    min-height: 0;
+    padding: 30px 0 36px;
+    overflow: hidden;
+  }
+
+  .story-section > .container {
+    display: block;
+    width: calc(100% - 32px);
+    height: auto;
+  }
+
+.story-row {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 14px;
+  width: 100%;
+}
+
+  /* Immagine sopra, testo sotto */
+
+  .story-artwork,
+  .origins .story-artwork,
+  .journey .story-artwork,
+  .transformation .story-artwork,
+  .conclusion .story-artwork {
+    order: 1;
+    width: 100%;
+    margin: 0;
+    transform: none;
+  }
+
+  .story-artwork img,
+  .origins .story-artwork img,
+  .journey .story-artwork img,
+  .transformation .story-artwork img,
+  .conclusion .story-artwork img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 34svh;
+    object-fit: contain;
+    object-position: center;
+    transform: none;
+  }
+
+  .story-copy,
+  .origins .story-copy,
+  .journey .story-copy,
+  .transformation .story-copy,
+  .conclusion .story-copy {
+    order: 2;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transform: none;
+  }
+
+  .story-copy .eyebrow,
+  .origins .story-copy .eyebrow,
+  .journey .story-copy .eyebrow,
+  .transformation .story-copy .eyebrow,
+  .conclusion .story-copy .eyebrow {
+    margin-bottom: 4px;
+    font-size: 9px;
+    line-height: 1.3;
+  }
+
+  .story-copy h2,
+  .origins .story-copy h2,
+  .journey .story-copy h2,
+  .transformation .story-copy h2,
+  .conclusion .story-copy h2 {
+    max-width: 100%;
+    margin: 0 0 8px;
+    font-size: clamp(22px, 6.5vw, 30px);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    transform: none;
+  }
+
+  .story-copy > p:last-child,
+  .origins .story-copy > p:last-child {
+    max-width: 100%;
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.45;
+    transform: none;
+  }
+
+  .journey .story-copy h2,
+  .journey .story-copy > p:last-child,
+  .conclusion .story-copy h2,
+  .conclusion .story-copy > p:last-child {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+
+  /* ---------- FOOTER ---------- */
+
+  .site-footer {
+    padding: 0;
+  }
+
+  .footer-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 14px 16px 18px;
+  }
+
+  .footer-row::before {
+    right: 16px;
+    left: 16px;
+  }
+
+  .footer-home,
+  .footer-project,
+  .footer-copyright {
+    font-size: 8px;
+    line-height: 1.3;
+    letter-spacing: 0;
+  }
+
+  .footer-home,
+  .footer-copyright {
+    flex-shrink: 0;
+  }
+
+  .footer-project {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+  }
+}
